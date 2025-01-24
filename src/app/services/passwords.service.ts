@@ -33,7 +33,6 @@ export class PasswordsService {
         unshuffledPassword += pools[pool][Math.floor(Math.random() * pools[pool].length)]
       }
     }
-    console.log(unshuffledPassword);
 
     return this.shufflePassword(unshuffledPassword);
   }
@@ -56,5 +55,15 @@ export class PasswordsService {
       pools.push(this.specialCharPool)
     }
     return pools;
+  }
+
+  getCharColor(char: string) {
+    if (this.alphabetPool.includes(char)) {
+      return '#ff76b4'
+    } else if (this.numericPool.includes(char)) {
+      return '#59a8f3';
+    } else {
+      return '#f3f259';
+    }
   }
 }

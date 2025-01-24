@@ -1,13 +1,16 @@
 <main>
   <h3>Password Generator</h3>
-
   @if(error) {
   <p class="error-message">{{ error }}</p>
   }
 
   <div class="card">
     <div class="password-display">
-      {{ password }}
+      @for (char of password.split(''); track char+random) {
+      <span [ngStyle]="{'color': getCharColor(char)}">
+        {{char}}
+      </span>
+      }
     </div>
   </div>
   <div class="card" [formGroup]="passwordForm">
@@ -19,6 +22,9 @@
       </label>
       <label>
         <input type="checkbox" formControlName="includeNumbers"> Include Numbers
+      </label>
+      <label>
+        <input type="checkbox" formControlName="includeSpecialChar"> Include Special Characters
       </label>
     </div>
     <button (click)="handleGeneratePassword()" [disabled]="error">
