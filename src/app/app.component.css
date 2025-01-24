@@ -1,0 +1,68 @@
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-family: monospace;
+}
+.card {
+  padding: 12px 24px;
+  background-color: #222424;
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.alert {
+  height: 40px;
+}
+button {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: monospace;
+}
+button:disabled {
+  background-color: #c1c1c1;
+  cursor: not-allowed;
+}
+.error-message {
+  color: #e86969;
+}
+h3 {
+  color: #5f6262;
+  font-size: 20px;
+}
+.password-display {
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #04aa6d;
+  outline: none;
+  transition: border-color 0.3s ease;
+  min-width: 300px;
+  background-color: #222424;
+  color: #fff;
+  text-align: center;
+}
+input[type="number"]:focus {
+  border-color: #04aa6d;
+}
+input[type="number"]::placeholder {
+  color: #888;
+}
