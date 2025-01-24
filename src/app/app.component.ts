@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     this.password = "";
     const { includeAlphabets, includeNumbers, includeSpecialChar } = this.passwordForm.value;
     if (this.passwordForm.invalid) {
-      this.error = "Enter a number between 4 and 31";
+      this.error = "Enter a valid number between 5 and 30";
     }
     else if (!includeAlphabets && !includeNumbers && !includeSpecialChar) {
       this.error = "Select atleast one of the options"
