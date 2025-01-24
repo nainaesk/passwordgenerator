@@ -16,7 +16,9 @@ export class AppComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private passwordService: PasswordsService) {
     this.passwordForm = this.fb.group({
-      passwordLength: [null, [Validators.required, Validators.min(5), Validators.max(50)]]
+      passwordLength: [null, [Validators.required, Validators.min(5), Validators.max(50)]],
+      includeAlphabets: [true],
+      includeNumbers: [true]
     });
   }
 
@@ -38,8 +40,8 @@ export class AppComponent implements OnInit {
 
   handleGeneratePassword() {
     if (this.passwordForm.errors) { }
-    const { passwordLength } = this.passwordForm.value;
-    this.password = this.passwordService.generatePassword(passwordLength, { alphabets: true, numbers: false, specialChar: false });
+    const { passwordLength, includeAlphabets, includeNumbers } = this.passwordForm.value;
+    this.password = this.passwordService.generatePassword(passwordLength, { alphabets: includeAlphabets, numbers: includeNumbers, specialChar: false });
 
   }
 }
