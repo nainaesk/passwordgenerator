@@ -16,6 +16,10 @@ main {
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+  min-height: 80px;
+}
+.alert {
+  background-color: #000000;
 }
 button {
   background-color: #04aa6d;
