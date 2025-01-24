@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private passwordService: PasswordsService, private destroyRef: DestroyRef) {
     this.passwordForm = this.fb.group({
-      passwordLength: [null, [Validators.required, Validators.min(5), Validators.max(50)]],
+      passwordLength: [5, [Validators.required, Validators.min(5), Validators.max(30)]],
       includeAlphabets: [true],
       includeNumbers: [false],
       includeSpecialChar: [false]
@@ -34,10 +34,14 @@ export class AppComponent implements OnInit {
   }
   validateChanges() {
     this.password = "";
-
+    const { includeAlphabets, includeNumbers, includeSpecialChar } = this.passwordForm.value;
     if (this.passwordForm.invalid) {
-      this.error = "Enter a number between 5 and 50";
-    } else {
+      this.error = "Enter a number between 4 and 31";
+    }
+    else if (!includeAlphabets && !includeNumbers && !includeSpecialChar) {
+      this.error = "Select atleast one of the options"
+    }
+    else {
       this.error = "";
     }
   }

@@ -7,7 +7,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 Assumptions:
 
 - Alphabets: Includes uppercase and lowercase English letters.
-- Password Length: Should be atleast 5 and maximum of 50
+- Password Length: Should be atleast 5 and maximum of 30
 - Validation: Entered input is validated on blur
 
 Steps:

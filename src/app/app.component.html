@@ -1,11 +1,6 @@
 <main>
   <h3>Password Generator</h3>
-  <div class="card alert">
-    @if(error) {
-    <p class="error-message">{{ error }}</p>
-    }
-  </div>
-
+  @if(password) {
   <div class="card">
     <div class="password-display">
       @for (char of password.split(''); track char+random) {
@@ -15,9 +10,15 @@
       }
     </div>
   </div>
-  <div class="card" [formGroup]="passwordForm">
-    <input type="number" id="passwordLength" formControlName="passwordLength" min="5" maxlength="50"
-      placeholder="Enter password length between 5 and 50" />
+  }
+
+
+  <div class="card form" [formGroup]="passwordForm">
+    <input type="number" id="passwordLength" formControlName="passwordLength"
+      placeholder="Enter password length between 5 and 30" />
+    @if(error) {
+    <div class="error-message">{{ error }}</div>
+    }
     <div class="checkbox-group">
       <label>
         <input type="checkbox" formControlName="includeAlphabets"> Include Alphabets
@@ -33,4 +34,7 @@
       Generate <span style="font-size: 24px">&#8594;</span>
     </button>
   </div>
+
+
+
 </main>
